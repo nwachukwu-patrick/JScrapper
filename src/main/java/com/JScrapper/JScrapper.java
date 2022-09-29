@@ -33,8 +33,14 @@ public class JScrapper {
 		}
 		
 	}
-	public void getLink() {
-		
+	public void get() {
+
+//		List<WebElement> tag =  this.webDriver.findElements(By.tagName("html"));
+		List <WebElement> input = this.webDriver.findElements(By.tagName("button"));
+		for(WebElement e: input){
+			System.out.println(e.getAttribute("name"));
+		}
+
 
 	}
 	public void quit() {
@@ -57,9 +63,12 @@ public class JScrapper {
 	}
 	
 	public static void main(String[] args) {
-		JScrapper jScrapper = new JScrapper("https://www.geeksforgeeks.org/arraylist-foreach-method-in-java/",
+		String url = "https://www.geeksforgeeks.org/arraylist-foreach-method-in-java/";
+		url = "http://localhost/App/";
+		url = "https://facebook.com/";
+		JScrapper jScrapper = new JScrapper(url,
 				"chrome","/usr/bin/chromedriver/chromedriver");
-		jScrapper.getAllLink();
+		jScrapper.get();
 		jScrapper.quit();
 	}
 	
